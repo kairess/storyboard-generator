@@ -1,3 +1,5 @@
 .streamlit/*
 models/*
-
+result/*
+__pycache__
+.DS_Store
