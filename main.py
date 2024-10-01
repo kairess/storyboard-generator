@@ -63,7 +63,7 @@ Develop at least 4 distinct scenes based on this direction, each with a clear na
 Ensure each scene has a clear conflict, character development, and advances the overall plot. The story should have a clear beginning, development, climax, and resolution, with a distinct message or theme. Make the story compelling and interesting to the audience.
 For each scene, provide:
 
-A detailed description of the events in Korean.
+A detailed description of the events in Korean and English.
 An English prompt for image generation, including character descriptions and scene details.
 
 Use the following character descriptions in the image prompts:
@@ -74,7 +74,7 @@ Use the following character descriptions in the image prompts:
 - mel: mel, jewelry, earrings, dark skin
 
 Include additional details about their actions and the background in the image prompts, separated by commas.
-Return the results in a JSON format that can be parsed as a list of dictionaries in Python, with keys 'text' for the Korean description and 'prompt' for the English image generation prompt. Ensure return only the JSON string, not any other text or comments."""
+Return the results in a JSON format that can be parsed as a list of dictionaries in Python, with keys 'text' for the Korean and English description and 'prompt' for the English image generation prompt. Ensure return only the JSON string, not any other text or comments."""
 
         messages = [{
             "role": "user",
