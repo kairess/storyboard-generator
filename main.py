@@ -43,29 +43,13 @@ if 'storyboard_images' not in st.session_state:
     st.session_state.storyboard_images = []
 if 'storyboard_descriptions' not in st.session_state:
     st.session_state.storyboard_descriptions = []
-if 'generation_complete' not in st.session_state:
-    st.session_state.generation_complete = False
 
 # 사용자 입력
 episode_title = st.text_input("Enter the episode title:", value="Arcane - Season 2")
 scene_description = st.text_area("Enter the scene description:", value="징크스의 새로운 발명품이 예상치 못한 재앙을 일으키고, 바이, 케이틀린, 멜이 이를 해결하려 노력한다.\nJinx's new invention causes an unexpected catastrophe, and Vi, Caitlyn, and Mel strive to resolve the crisis.")
 
-button = st.button("Generate Storyboard")
 
-# 임시 이미지, 텍스트 컨테이너
-temp_images = []
-temp_texts = []
-
-if not st.session_state.generation_complete:
-    with st.container():
-        for i in range(4):
-            col1, col2 = st.columns(2)
-            with col1:
-                temp_images.append(st.empty())
-            with col2:
-                temp_texts.append(st.empty())
-
-if button:
+if st.button("Generate Storyboard"):
     date = datetime.now().strftime("%Y%m%d%H%M%S")
     
     # 새로운 생성 시 기존 데이터 초기화
@@ -125,13 +109,15 @@ Return the results in a JSON format that can be parsed as a list of dictionaries
             st.session_state.storyboard_images.append(image_path)
             st.session_state.storyboard_descriptions.append(item['text'])
 
-            temp_images[i].image(image_path)
-            temp_texts[i].write(item['text'])
+            col1, col2 = st.columns(2)
+            with col1:
+                st.image(image_path)
+            with col2:
+                st.write(item['text'])
 
     with open(f"result/{date}_storyboard.txt", "w", encoding="utf-8") as file:
         file.write(st.session_state.storyboard_text)
 
-    st.session_state.generation_complete = True
     st.rerun()
 
 
@@ -152,7 +138,7 @@ if st.session_state.storyboard_text:
     st.text_area("Storyboard Content", value=f"# {episode_title}\n\n{st.session_state.storyboard_text}", height=400)
 
     st.download_button(
-        label="Download Storyboard Text",
+        label="Export Storyboard Text",
         data=st.session_state.storyboard_text,
         file_name=f"{episode_title}_storyboard.txt",
         mime="text/plain"
