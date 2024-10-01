@@ -47,7 +47,7 @@ if 'generation_complete' not in st.session_state:
     st.session_state.generation_complete = False
 
 # 사용자 입력
-episode_title = st.text_input("Enter the drama title:", value="Arcane - Season 2")
+episode_title = st.text_input("Enter the episode title:", value="Arcane - Season 2")
 scene_description = st.text_area("Enter the scene description:", value="징크스의 새로운 발명품이 예상치 못한 재앙을 일으키고, 바이, 케이틀린, 멜이 이를 해결하려 노력한다.\nJinx's new invention causes an unexpected catastrophe, and Vi, Caitlyn, and Mel strive to resolve the crisis.")
 
 button = st.button("Generate Storyboard")
