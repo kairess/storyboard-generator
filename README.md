@@ -2,7 +2,7 @@
 
 Generate an animation storyboard from a text prompt. It uses Claude 3.5 Sonnet and Stable Diffusion XL LoRA.
 
-![](preview/result.gif)
+![](preview/result2.gif)
 
 |  |  |
 |:---:|:---:|
