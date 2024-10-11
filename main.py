@@ -12,6 +12,7 @@ client = anthropic.Anthropic(api_key=st.secrets["ANTHROPIC_API_KEY"])
 st.set_page_config(page_title="Arcane Storyboard Generator")
 
 st.title("Arcane Storyboard Generator")
+print('test')
 
 
 def generate_and_save_image(prompt, output_path, **kwargs):
